@@ -1,20 +1,20 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <spuk/typedefs.c>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "spukdefs.c"
+/* Get spuket for specific location, protocol, and port
+   Really, this function should be called to put values
+   into the address_family, protocol, and socket_type 
+   variables of a spuket */
 
-/* Get socket for specific location, protocol, and port */
-int getsocket(package *pack) {
-char url_parse[(sizeof(char)*(*pack->url)) + 1];
-unsigned i = 0; //Increment variable
-while(url_parse != ':') {
-url_parse[i] = *pack->url[i];
-i++;
-}
-i = 0;
-char protocol[5];
-protocol = url_parse;
-if (url_parse[i] != '\0')
-url_parse[i] = '\0';
+int getspuket(package *pack) {
+	char url_protocol[sizeof(char) * 5];
+	char top_level_domain[sizeof(char) * 128];
+	memcpy(url_protocol, (const char *) &pack->url, sizeof(char) * 4);
+	if (url_protocol[5] == ':')
+		url_protocol[5] == '\0';
+	memcpy(top_level_domain, (const char *) &pack->url, sizeof(char) * 6);
 
 }
