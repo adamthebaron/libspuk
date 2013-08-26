@@ -21,13 +21,16 @@ typedef struct{
 
 
 
-/* Interface between a package and the files it has/will installed */
+/* Interface between a package and the files it added/removed */
 typedef struct{
 	/* Package that we will be dealing with */
 	package * software;
 	/* Array of file paths that point to EACH file that the package has installed */
  	char (* files[])[];
-	/*  */
+	/* Number of files added */
+	int files_added;
+	/* Number of files removed */
+	int files_removed;
 }profile;
 
 
