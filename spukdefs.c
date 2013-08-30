@@ -37,6 +37,8 @@ typedef struct{
 
 /* wrapper around the standard socket which helps with the creation of a socket tailored to a package */
 typedef struct{
+        /* Address to connect() to. */
+        char const * const address;
 	/* Protocol family to use. For example, AF_INET, which is a bunch of protocols to use with IPv4 */
 	const int address_family;
 	/* The type of transmission between the two computers. For example, SOCK_STREAM for a reliable connection */
