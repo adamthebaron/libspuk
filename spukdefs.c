@@ -41,7 +41,7 @@ typedef struct{
 
 
 /* wrapper around the standard socket which helps with the creation of a socket tailored to a package */
-typedef struct{
+struct spuket{
 
 	/* Protocol family to use. For example, AF_INET, which is a bunch of protocols to use with IPv4 */
 	const int address_family;
@@ -51,8 +51,11 @@ typedef struct{
 	const int protocol;
 	/* Package that we will be dealing with */
 	package * software;
-	/* And finally, the regular socket. This is a function pointer to a socket() call with it's parameters
+	/* This is a function pointer to a socket() call with it's parameters
 	  equal to the values in address_family, socket_type, and protocol*/
 	int (*sock_desc) (int address_family, int socket_type, int protocol);
-	sock_desc = socket;
-}spuket;
+	/* Reference */
+	struct addrinfo *reference;
+	/* Linked list, used only when argv has multiple addresses. */
+	struct spuket *next_spuket;
+};

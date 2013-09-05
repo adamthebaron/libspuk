@@ -15,7 +15,7 @@ int get_spuket(package *pack) {
   memset(&hints, 0, sizeof(hints));
   hints.ai_family = AF_UNSPEC;
   hints.ai_socktype = 0;
-  getaddrinfo()
+  getaddrinfo(pack->url, "echo")
 }
 
 /* Take connect() when dealing with the appropriate socket, add spuket, and you pretty much have the return variable of this. */
