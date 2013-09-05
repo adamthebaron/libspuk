@@ -11,17 +11,17 @@ typedef struct{
   bool edit_configure;
   /* Edit makefile script if present */
   bool edit_makefile; 
-  /* URL to EXACT location where tarball is. */
-  char const * const url;
+  /* URL to EXACT location where file is. */
+  char * url;
   /* Y-you know what... I don't know why I declared this. */
   //char const * const filename;
   /* Location of tarball on server (Parent directory) */
-  char const * const location;
+  char * location;
   /* Size of tarball in bytes */
-  float size;
+  size_t size;
   /* Checksums to be safe */
-  char const * const MD5SUM;
-  char const * const SHA512SUM;
+  char * md5sum;
+  char * sha512sum;
 }package;
 
 
@@ -35,7 +35,7 @@ typedef struct{
 	/* Number of files removed */
 	int files_removed;
         /* Array of file paths that point to EACH file that the package has installed */
- 	char const * const files[];
+ 	char * const files[];
 }profile;
 
 
@@ -44,17 +44,18 @@ typedef struct{
 struct spuket{
 
 	/* Protocol family to use. For example, AF_INET, which is a bunch of protocols to use with IPv4 */
-	const int address_family;
+        int address_family;
 	/* The type of transmission between the two computers. For example, SOCK_STREAM for a reliable connection */
-	const int socket_type;
+	int socket_type;
 	/* That one parameter in socket() that everyone sets to 0 */
-	const int protocol;
+	int protocol;
 	/* Package that we will be dealing with */
 	package * software;
 	/* This is a function pointer to a socket() call with it's parameters
 	  equal to the values in address_family, socket_type, and protocol*/
-	int (*sock_desc) (int address_family, int socket_type, int protocol);
-	/* Reference */
+	//int (*sock_desc) (int address_family, int socket_type, int protocol);
+        int sockfd;
+        /* Reference */
 	struct addrinfo *reference;
 	/* Linked list, used only when argv has multiple addresses. */
 	struct spuket *next_spuket;

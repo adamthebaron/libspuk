@@ -9,20 +9,16 @@
 #include "spukdefs.c"
 
 //The only thing this package should have is a URL or file path
-int get_spuket(package *pack) {
-  struct addrinfo *source;
-  struct addrinfo hints;
-  memset(&hints, 0, sizeof(hints));
-  hints.ai_family = AF_UNSPEC;
-  hints.ai_socktype = 0;
-  getaddrinfo(pack->url, "echo")
-}
-
-/* Take connect() when dealing with the appropriate socket, add spuket, and you pretty much have the return variable of this. */
-
-int connect_spuket(spuket *spukfd) {
-  if (*spukfd->socket_type != SOCK_DGRAM) {
-    struct sockaddr_in internet_address;
-  }
+struct spuket get_spuket(package * pack) {
+  struct spuket * return_variable;
+  int status;
+  //Use url in package pack to populate the linked list of addrinfo structs in the spuket
+  if (status = getaddrinfo(pack->url, NULL, NULL, &(return_variable->reference)) != 0)
+    fprintf(stderr, "ERROR getaddrinfo(): %s\n", gai_strerror(status)); //Thanks beej
+  return_variable->reference->ai_family = return_variable->address_family;
+  return_variable->reference->ai_socktype = return_variable->socket_type;
+  return_variable->reference->ai_protocol = return_variable->protocol;  
+  if (return_variable->sockfd = socket(return_variable->address_family, return_variable->socket_type, return_variable->protocol) == -1)
+    fprintf(stderr, "ERROR socket(): %s\n", perrror(return_variable->sockfd));
 
 }
