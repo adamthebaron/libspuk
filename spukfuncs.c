@@ -20,5 +20,8 @@ struct spuket get_spuket(package * pack) {
   return_variable->reference->ai_protocol = return_variable->protocol;  
   if (return_variable->sockfd = socket(return_variable->address_family, return_variable->socket_type, return_variable->protocol) == -1)
     fprintf(stderr, "ERROR socket(): %s\n", perrror(return_variable->sockfd));
-
+  return_variable->software = &pack;
+  return return_variable;
 }
+
+
