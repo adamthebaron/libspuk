@@ -13,10 +13,6 @@ typedef struct{
   bool edit_makefile; 
   /* URL to EXACT location where file is. */
   char * url;
-  /* Y-you know what... I don't know why I declared this. */
-  //char const * const filename;
-  /* Location of tarball on server (Parent directory) */
-  char * location;
   /* Size of tarball in bytes */
   size_t size;
   /* Checksums to be safe */
