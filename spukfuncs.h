@@ -9,11 +9,15 @@
 #include <errno.h>
 #include "spukdefs.c"
 
-package * get_package(char *s) {
+
+int install_file(package *source) {
+
+}
+
+package * get_package_url(char *s) {
   package * return_variable;
   memset(&return_variable, 0, sizeof(package));
   return_variable->url = &(*s);
-
   return return_variable;
 }
 
