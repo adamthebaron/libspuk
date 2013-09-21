@@ -1,3 +1,4 @@
+/* WELCOME TO POINTER HELL */
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdlib.h>
@@ -7,12 +8,8 @@
 #include <netdb.h>
 #include <sys/types.h>
 #include <errno.h>
-#include "spukdefs.c"
-
-
-int install_file(package *source) {
-
-}
+#include "spukdefs.h"
+#include "libspuk.h"
 
 package * get_package_url(char *s) {
   package * return_variable;
@@ -39,3 +36,30 @@ struct spuket * get_spuket(package * pack) {
   return return_variable;
 }
 
+
+/*So, its September 21st, 2013, and I haven't commited code in 13 days. I feel like crap. 
+  Like, I just, I hate myself and I am never going to be good at this and I grow old and
+  you know... paranoid stuff that is just plain not true, but I can't convince myself to 
+  think like that. Well, anyways, you know that feeling you have when you read code that 
+  you wrote, but do not understand? I am having that feeling right now. Not only am I 
+  having that feeling, I also feel like a pro wrote that code. So, I guess thats an 
+  improbable plus. That is, you probably think I am lying and cocky. Think what you want,
+  I'll be busy writing software for the rest of my life. I am Catholic though, so God is
+  in there somewhere. Maybe I will be IT at a monastery or something.*/
+int download_and_prepare_file(struct spuket *spkt) {
+  char address[512];
+  int status;
+  address = spkt->software->url;
+  if(system("wget %s --directory-prefix=%s", address, DOWNLOADED) == -1) {
+    //Something tells me this if statement is not safe.
+    printf("ERROR: Download failed. I cannot give you more info because I don't know wtf errno is.");
+  }
+  /* FILE DOWNLOADED */
+
+
+}
+
+int uncompress_file(struct spuket *spkt) {
+
+
+}
