@@ -23,9 +23,7 @@ package * get_package_url(char *s) {
 struct spuket * get_spuket(package * pack) {
   struct spuket * return_variable;
   memset(&return_variable, 0, sizeof(struct spuket));
-  int status;
-  //Use url in package pack to populate the linked list of addrinfo structs in the spuket
-  if ((status = getaddrinfo(pack->url, NULL, NULL, &(return_variable->reference))) != 0)
+  int status;info(pack->url, NULL, NULL, &(return_variable->reference))) != 0)
     fprintf(stderr, "ERROR getaddrinfo(): %s\n", gai_strerror(status)); //Thanks beej
   return_variable->reference->ai_family = return_variable->address_family;
   return_variable->reference->ai_socktype = return_variable->socket_type;
@@ -37,24 +35,14 @@ struct spuket * get_spuket(package * pack) {
 }
 
 
-/*So, its September 21st, 2013, and I haven't commited code in 13 days. I feel like crap. 
-  Like, I just, I hate myself and I am never going to be good at this and I grow old and
-  you know... paranoid stuff that is just plain not true, but I can't convince myself to 
-  think like that. Well, anyways, you know that feeling you have when you read code that 
-  you wrote, but do not understand? I am having that feeling right now. Not only am I 
-  having that feeling, I also feel like a pro wrote that code. So, I guess thats an 
-  improbable plus. That is, you probably think I am lying and cocky. Think what you want,
-  I'll be busy writing software for the rest of my life. I am Catholic though, so God is
-  in there somewhere. Maybe I will be IT at a monastery or something.*/
 int download_and_prepare_file(struct spuket *spkt) {
   char address[512];
   int status;
   address = spkt->software->url;
-  if(system("wget %s --directory-prefix=%s", address, DOWNLOADED) == -1) {
-    //Something tells me this if statement is not safe.
+  if(system("wget %s --directory-prefix=%s", address, DOWNLOADED) == -1)
+  //Use url in package pack to populate the linked list of addrinfo structs in the spuket
+  if ((status = getaddr
     printf("ERROR: Download failed. I cannot give you more info because I don't know wtf errno is.");
-  }
-  /* FILE DOWNLOADED */
 
 
 }
