@@ -7,17 +7,8 @@ libspuk is merely some code that uses the UNIX TCP/IP stack to access files on t
 and creates structures based around sockets. It's primary use is for me, so that I may have an easier time writing spuk
 (its relevant program. Think of the two as libcurl and curl), however anyone can use the code.
 
-Are there any dependencies?
-=======
+Is there actually any C++?
+==========================
 
-No.
-
-Why not?
-=======
-
-Dependencies are for idiots who don't know what they are doing and can't put in the time to write good programs.
-
-Are you freaking serious?!?!?!
-=======
-
-I'm never serious. Now, calm down.
+Uh, no. Github is weird and I really need to switch to my own servers. But theres this thing where I have no money.
+I could talk to you about that, but I have to listen to Pandora.
