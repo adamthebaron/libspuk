@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+typedef enum{
+false
+true
+}bool;
+
 /* Options to pass to a package struct, note that not all of these can be true (1) */
 typedef struct {
 bool CONFIGURE;
