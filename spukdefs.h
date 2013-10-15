@@ -6,17 +6,17 @@
 typedef enum{
 false
 true
-}bool;
+}BOOLEAN;
 
 /* Options to pass to a package struct, note that not all of these can be true (1) */
 typedef struct {
-bool CONFIGURE;
-bool MAKEFILE;
-bool MD5;
-bool SHA512;
-bool REMOVE;
-bool BUILD;
-bool EXTRACT;
+BOOLEAN CONFIGURE;
+BOOLEAN MAKEFILE;
+BOOLEAN MD5;
+BOOLEAN SHA512;
+BOOLEAN REMOVE;
+BOOLEAN BUILD;
+BOOLEAN EXTRACT;
 // I'll read pacman's source for optimization, I guess.
 }package_options;
 
