@@ -40,9 +40,9 @@ typedef struct{
 /* Interface between a package and the files it added/removed */
 typedef struct{
 	/* Number of files added */
-	unsigned int files_added;
+	signed int files_added;
 	/* Number of files removed */
-	unsigned int files_removed;
+	signed int files_removed;
         /* Array of file paths that point to EACH file that the package has installed */
  	char * const files[];
 }profile;

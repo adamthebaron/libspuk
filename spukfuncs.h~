@@ -24,8 +24,7 @@ struct spuket * get_spuket(package * pack) {
   struct spuket * return_variable;
   memset(&return_variable, 0, sizeof(struct spuket));
   int status;
-  if(status = getaddrinfo(pack->url, NULL, NULL, &(return_variable->reference)) != 0)
-  	fprintf(stderr, "ERROR getaddrinfo(): %s\n", gai_strerror(status)); //Thanks beej
+  fprintf(stderr, "ERROR getaddrinfo(): %s\n", gai_strerror(status)); //Thanks beej
   return_variable->reference->ai_family = return_variable->address_family;
   return_variable->reference->ai_socktype = return_variable->socket_type;
   return_variable->reference->ai_protocol = return_variable->protocol;  
