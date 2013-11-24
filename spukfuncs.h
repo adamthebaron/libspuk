@@ -1,4 +1,6 @@
 /* WELCOME TO POINTER HELL */
+/* You may be asking why I am passing each individual variable to a function-specific
+   scope variable. I don't freaking know. It looks cool and impresses people. So, money.*/
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdlib.h>
@@ -38,9 +40,15 @@ struct spuket * get_spuket(package * pack) {
 
 int download_and_prepare_file(struct spuket *spkt) {
   char address[512];
-  int status;
+  int status = -1;
   address = spkt->software->url;
-  
+  faddr = spkt->address_family;
+  sock = spkt->socket_type;
+  protocl = spkt->protocol;
+  sockfd = socket(faddr, sock, protocl);
+  if (sockfd == status)
+    fprintf(stderr, "ERROR socket(): %s\n", gai_strerror(status));
+  if ((connect(sockfd, )
 
 
 }
