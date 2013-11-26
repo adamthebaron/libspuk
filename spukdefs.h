@@ -20,6 +20,18 @@ BOOLEAN EXTRACT;
 // I'll read pacman's source for optimization, I guess.
 }package_options;
 
+
+/* Interface between a package and the files it added/removed */
+typedef struct{
+	/* Number of files added */
+	unsigned int files_added;
+	/* Number of files removed */
+	unsigned int files_removed;
+        /* Array of file paths that point to EACH file that the package has installed */
+ 	char * const files[];
+}profile;
+
+
 /* Package structure which is used with a socket and has a variety of different flags, usually used for spuk the package manager */
 typedef struct{
   /* URL to EXACT location where file is. */
@@ -34,19 +46,6 @@ typedef struct{
   /* Build options */
   package_options OPTIONS;
 }package;
-
-
-
-/* Interface between a package and the files it added/removed */
-typedef struct{
-	/* Number of files added */
-	unsigned int files_added;
-	/* Number of files removed */
-	unsigned int files_removed;
-        /* Array of file paths that point to EACH file that the package has installed */
- 	char * const files[];
-}profile;
-
 
 
 /* wrapper around the standard socket which helps with the creation of a socket tailored to a package */

@@ -22,7 +22,7 @@ package * get_package_url(char *s) {
 
 
 /* The only thing that should be accessed in the passed package is the url. */
-struct spuket * get_spuket(package * pack) {
+struct spuket * get_spuket(package *pack) {
   struct spuket * return_variable;
   memset(&return_variable, 0, sizeof(struct spuket));
   int status;
@@ -33,13 +33,13 @@ struct spuket * get_spuket(package * pack) {
   return_variable->reference->ai_protocol = return_variable->protocol;  
   if ((return_variable->sockfd = socket(return_variable->address_family, return_variable->socket_type, return_variable->protocol)) == -1)
     fprintf(stderr, "ERROR: socket()");
-  return_variable->software = &(*pack);
+  return_variable->software = pack;
   return return_variable;
 }
 
 
-int download_and_prepare_file(struct spuket *spkt) {
-  char address[512];
+int download_and_prepare_spuket(struct spuket *spkt) {
+  char *address];
   int status = -1;
   address = spkt->software->url;
   faddr = spkt->address_family;
@@ -48,12 +48,12 @@ int download_and_prepare_file(struct spuket *spkt) {
   sockfd = socket(faddr, sock, protocl);
   if (sockfd == status)
     fprintf(stderr, "ERROR socket(): %s\n", gai_strerror(status));
-  if ((connect(sockfd, )
+  //if ((connect(sockfd, )
 
 
 }
 
-int uncompress_file(struct spuket *spkt) {
+int uncompress_file_from_spuket(struct spuket *spkt) {
 
 
 }
