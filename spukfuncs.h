@@ -28,6 +28,9 @@ struct spuket * get_spuket(package *pack) {
   int status;
   if(status = getaddrinfo(pack->url, NULL, NULL, &(return_variable->reference)) != 0)
   	fprintf(stderr, "ERROR getaddrinfo(): %s\n", gai_strerror(status)); //Thanks beej
+   /* Upon a successful getaddrinfo() call, we can assume two things:
+	1. The host NIC card works properly with its TCP/IP stack (I dont know anything.)
+	2. We have the IP address of the location we are to connect to.*/
   return_variable->reference->ai_family = return_variable->address_family;
   return_variable->reference->ai_socktype = return_variable->socket_type;
   return_variable->reference->ai_protocol = return_variable->protocol;  
@@ -37,23 +40,12 @@ struct spuket * get_spuket(package *pack) {
   return return_variable;
 }
 
-
-int download_and_prepare_spuket(struct spuket *spkt) {
-  char *address];
-  int status = -1;
-  address = spkt->software->url;
-  faddr = spkt->address_family;
-  sock = spkt->socket_type;
-  protocl = spkt->protocol;
-  sockfd = socket(faddr, sock, protocl);
-  if (sockfd == status)
-    fprintf(stderr, "ERROR socket(): %s\n", gai_strerror(status));
-  //if ((connect(sockfd, )
-
-
-}
-
-int uncompress_file_from_spuket(struct spuket *spkt) {
-
-
+/* What we now have is a spuket with the following information:
+      a protocol family (AF_INET, AF_INET6, AF_UNIX)
+      a socket type (SOCK_DGRAM, SOCK_STREAM, possibly even SOCK_RAW)
+      a protocol specific to the protocol family (I dont frikin know)
+      */
+int connect_spuket(struct spuket *spkt) {
+  
+  
 }

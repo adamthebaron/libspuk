@@ -63,7 +63,7 @@ struct spuket{
 	  equal to the values in address_family, socket_type, and protocol*/
 	//int (*sock_desc) (int address_family, int socket_type, int protocol);
         int sockfd;
-        /* Reference */
+        /* Reference. This is the location that the socket is connected to.*/
 	struct addrinfo *reference;
 	/* Linked list, used only when argv has multiple addresses. */
 	struct spuket *next_spuket;
