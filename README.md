@@ -1,4 +1,4 @@
-libspuk (No longer working on this.)
+libspuk
 =======
 
 Simple library that contains type definitions and functions useful for downloading files.
